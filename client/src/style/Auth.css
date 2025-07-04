@@ -1,0 +1,129 @@
+.auth {
+  padding-top: 4rem;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.5;
+}
+
+.form-wrapper {
+  z-index: 10;
+  backdrop-filter: blur(40px);
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  border: 1px solid #e5e7eb;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-radius: 1rem;
+}
+
+@media (min-width: 768px) {
+  .form-wrapper {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.heading {
+  font-size: 1.875rem;
+  font-weight: 600;
+}
+
+.form {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.input {
+  font-size: 1rem;
+  color: white;
+  width: 19rem;
+  background-color: transparent;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  outline: none;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+}
+
+.input:focus {
+  background-color: transparent;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.auth-btn {
+  outline: 0;
+  border: 0;
+  margin-top: 2rem;
+  background-color: #2563eb;
+  transition: all 0.2s ease-in-out;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-radius: 0.75rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.auth-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.show-pass {
+  cursor: pointer;
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 1.25rem;
+}
+
+a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  video {
+    display: none;
+  }
+}
