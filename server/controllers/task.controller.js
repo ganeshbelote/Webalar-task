@@ -24,7 +24,7 @@ export const createTask = async (req, res) => {
 
     await Log.create({
       action: 'Created task',
-      user: req.user.id,
+      user: req.user.userId,
       task: task._id
     })
 
@@ -99,7 +99,7 @@ export const updateTask = async (req, res) => {
 
     await Log.create({
       action: 'Updated task',
-      user: req.user.id,
+      user: req.user.userId,
       task: updatedTask._id
     })
 
@@ -120,15 +120,15 @@ export const deleteTask = async (req, res) => {
       return res.status(404).json({ message: 'Task not found' })
     }
 
-    await task.deleteOne()
-
     await Log.create({
       action: 'Deleted task',
-      user: req.user.id,
+      user: req.user.userId,
       task: task._id
     })
 
     io.emit('task_deleted', task._id)
+
+    await task.deleteOne()
 
     res.status(200).json({ message: 'Task deleted successfully' })
   } catch (error) {
@@ -139,22 +139,22 @@ export const deleteTask = async (req, res) => {
 export const reassignTask = async (req, res) => {
   try {
     const { id } = req.params
-    const { userId } = req.body
+    const { userId : assignedUser } = req.body
 
     const task = await Task.findById(id)
     if (!task) {
       return res.status(404).json({ message: 'Task not found' })
     }
 
-    task.assignedTo = userId
-    task.updatedBy = req.user.id
+    task.assignedTo = assignedUser
+    task.updatedBy = req.user.userId
     task.lastUpdatedAt = new Date()
 
     const updatedTask = await task.save()
 
     await Log.create({
-      action: `Reassigned task to user ${userId}`,
-      user: req.user.id,
+      action: `Reassigned task to user ${assignedUser}`,
+      user: req.user.userId,
       task: task._id
     })
 
@@ -202,7 +202,7 @@ export const smartAssignTask = async (req, res) => {
 
     await Log.create({
       action: `Smart assigned task to user ${minUser.username}`,
-      user: req.user.id,
+      user: req.user.userId,
       task: task._id
     })
 
