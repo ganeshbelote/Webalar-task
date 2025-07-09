@@ -188,3 +188,15 @@ export const refreshAccessToken = async (req, res) => {
     })
   }
 }
+
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find().select('-password')
+    res.status(200).json(users)
+  } catch (error) {
+    return res.status(500).json({
+      ok: false,
+      message: 'Server is unable to proceed request now, Please Try again !'
+    })
+  }
+}

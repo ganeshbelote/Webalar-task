@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import '../style/Auth.css'
 import { login } from '../utils/auth.helper'
@@ -15,6 +15,7 @@ const Login = () => {
     email: '',
     password: ''
   })
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const res = await login(userDetails)
@@ -23,7 +24,7 @@ const Login = () => {
         } else {
           successMsg(res.message)
           localStorage.setItem("accessToken",res.accessToken)
-          navigate('/')
+          navigate('/home')
         }
         setUserDetails({
         email: '',

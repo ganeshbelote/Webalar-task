@@ -25,7 +25,7 @@ const Register = () => {
     } else {
       successMsg(res.message)
       localStorage.setItem("accessToken",res.accessToken)
-      navigate('/')
+      navigate('/home')
     }
     setUserDetails({
     username: '',
