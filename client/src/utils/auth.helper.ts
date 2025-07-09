@@ -1,4 +1,5 @@
-const baseUrl: string = 'http://localhost:5000'
+// const baseUrl: string = 'http://localhost:5000'
+import baseUrl from './baseUrl'
 import ensureAuth from './ensureAuth.helper'
 
 type userDataType = {

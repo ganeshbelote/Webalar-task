@@ -1,5 +1,6 @@
 import ensureAuth from './ensureAuth.helper'
-const baseUrl: string = 'http://localhost:5000'
+// const baseUrl: string = 'http://localhost:5000'
+import baseUrl from './baseUrl'
 
 const logger = async () => {
   const route = '/api/logs/v1/'
