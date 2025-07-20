@@ -5,6 +5,29 @@
   height: 100vh;
 }
 
+.activity-log-btn{
+  display: none;
+  cursor: pointer;
+  outline: 0;
+  border: 2px solid blue;
+  padding: 0.6rem 1rem;
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.active{
+  transform: rotate(180deg);
+  transition: all .5s ease-in-out;
+}
+
+.show-activity-log{
+  display: block !important;
+}
+
 /* Activity Log */
 .activity-log {
   position: relative;
@@ -172,10 +195,13 @@
   .activity-log{
     display: none;
   }
+  .activity-log-btn{
+    display: flex;
+  }
 }
 
 .addTask{
-  z-index: 10;
+  z-index: 100;
   position: absolute;
   top: 0;
   left: 0;
@@ -251,4 +277,23 @@
   font-weight: 600;
   color: black;
   cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #184098;
+  border-radius: 10px;
+  border: 2px solid #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #184098;
 }

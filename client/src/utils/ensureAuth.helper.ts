@@ -28,3 +28,23 @@ const ensureAuth = async () => {
 }
 
 export default ensureAuth
+
+// auth.ts or api/auth.ts
+export const verifyUser = async () => {
+  const route = '/api/auth/v1/verify'
+  const finalUrl = `${baseUrl}${route}`
+
+  try {
+    const response = await fetch(finalUrl, {
+      method: 'GET',
+      credentials: 'include'
+    })
+
+    const result = await response.json()
+    return result
+  } catch (error) {
+    console.error('Verify Error:', error)
+    return null
+  }
+}
+

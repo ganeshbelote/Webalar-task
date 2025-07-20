@@ -8,8 +8,8 @@ import cors from 'cors'
 const app = express()
 
 app.use(cors({
-  origin: 'http://localhost:5173',  // ✅ Exact origin of your frontend
-  credentials: true                 // ✅ Allow sending cookies
+  origin: 'http://localhost:5173',  
+  credentials: true                 
 })) // Modify to production level
 app.use(cookieParser())
 app.use(express.json())

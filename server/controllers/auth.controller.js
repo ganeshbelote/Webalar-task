@@ -200,3 +200,28 @@ export const getAllUsers = async (req, res) => {
     })
   }
 }
+
+export const verifyUser = async (req, res) => {
+  try {
+    const refreshToken = req.cookies.refreshToken
+
+    if (!refreshToken) {
+      return res.status(401).json({ message: 'No refresh token provided' })
+    }
+
+    const payload = verifyRefreshToken(refreshToken)
+
+    const { exp, iat, nbf, ...cleanPayload } = payload
+
+    const newAccessToken = generateAccessToken(cleanPayload)
+
+    return res.status(200).json({
+      ok: true,
+      message: 'New access token created successfully !',
+      accessToken: newAccessToken
+    })
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: 'Server error' })
+  }
+}
