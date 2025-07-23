@@ -72,7 +72,7 @@ JWT_SECRET=your_jwt_secret
 ```
 
 ```bash
-npm start
+npm run dev
 ```
 
 ### 3. Setup Frontend
@@ -80,7 +80,7 @@ npm start
 ```bash
 cd ../frontend
 npm install
-npm start
+npm run dev
 ```
 
 Frontend runs at `http://localhost:3000`
@@ -108,14 +108,6 @@ If two users try to edit the same task:
   * **Merge changes** (combine edits)
   * **Overwrite** (choose one version)
 
----
-
-## 📄 Logic Document
-
-Check [`Logic_Document.md`](./Logic_Document.md) for an in-depth explanation of:
-
-* Smart Assign implementation
-* Conflict handling logic and edge cases
 
 ---
 
@@ -155,7 +147,7 @@ Check [`Logic_Document.md`](./Logic_Document.md) for an in-depth explanation of:
 **Ganesh**
 MERN Stack Developer & Intern at WebAlar
 🔗 [LinkedIn](https://www.linkedin.com/in/ganesh-belote-47a291277)
-📧 [ganesh@example.com](mailto:ganeshbelote18@gmail.com)
+📧 [ganeshbelote18@gmail.com](mailto:ganeshbelote18@gmail.com)
 
 
 
