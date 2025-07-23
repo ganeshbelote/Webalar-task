@@ -52,8 +52,8 @@ A full-stack MERN web app where multiple users can register, manage tasks, and c
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/repo-name.git
-cd repo-name
+git clone https://github.com/ganeshbelote/Webalar-task
+cd Webalar-task
 ````
 
 ### 2. Setup Backend
