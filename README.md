@@ -1,8 +1,3 @@
-Here’s a **complete, professional `README.md`** for your WebAlar full-stack collaborative To-Do Manager app. It includes all necessary sections for a polished GitHub project.
-
----
-
-````md
 # 🔄 Real-Time Collaborative To-Do Manager
 
 A full-stack MERN web app where multiple users can register, manage tasks, and collaborate in real-time—similar to a minimal Trello board but with custom logic like Smart Assign and conflict resolution.
@@ -151,7 +146,7 @@ Check [`Logic_Document.md`](./Logic_Document.md) for an in-depth explanation of:
 * Conflict handling demo
 * My favorite challenge & solution
 
-🎥 [Watch here](#)
+🎥 [Watch here](https://www.linkedin.com/in/ganesh-belote-47a291277)
 
 ---
 
