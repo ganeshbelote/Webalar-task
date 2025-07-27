@@ -8,11 +8,11 @@ import cors from 'cors'
 const app = express()
 
 app.use(cors(
-  // {
-  // origin: 'http://localhost:5174',  
-  // credentials: true                 
-  // }
-)) // Modify to production level
+  {
+  origin: 'https://todowebappbyganesh.netlify.app',  
+  credentials: true                 
+  }
+)) 
 app.use(cookieParser())
 app.use(express.json())
 app.use(urlencoded({ extended: true }))
