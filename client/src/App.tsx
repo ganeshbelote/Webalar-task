@@ -10,8 +10,7 @@ function App() {
     <Router>
       <ToastContainer position='top-right' autoClose={3000} />
       <Routes>
-        <Route path='/' element={<Navigate to='/login' />} />
-        <Route path='/login' element={<Login />} />
+        <Route path='/' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/home' element={<Home />} />
         <Route path='*' element={<NotFound />} />
