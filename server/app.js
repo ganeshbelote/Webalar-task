@@ -7,12 +7,13 @@ import cors from 'cors'
 
 const app = express()
 
-app.use(cors(
-  // {
-  //   origin: 'https://todowebappbyganesh.netlify.app/',  
-  //   credentials: true, 
-  // }
-)) 
+const allowedOrigin = 'https://todowebappbyganesh.netlify.app/';
+
+app.use(cors({
+  origin: allowedOrigin,
+  credentials: true
+}));
+
 app.use(cookieParser())
 app.use(express.json())
 app.use(urlencoded({ extended: true }))
