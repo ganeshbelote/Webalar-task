@@ -10,28 +10,11 @@ import type { DropResult } from '@hello-pangea/dnd';
 import updateTask from '../utils/updateTask.helper';
 import socket from '../utils/socket';
 import { verifyUser } from '../utils/ensureAuth.helper';
-
-// --- Types ---
-type UserType = {
-  username: string;
-  gmail: string;
-};
-
-type TaskType = {
-  _id: string;
-  title: string;
-  description: string;
-  status: string;
-  priority: string;
-  assignedTo?: UserType | { id: string; username: string };
-};
-
-type ActivityLogType = {
-  action: string;
-  task: TaskType;
-  timestamp: string;
-  user: UserType;
-};
+import type {
+  TaskType,
+  ActivityLogType,
+  CreateTaskType,
+} from '../utils/types';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -39,14 +22,16 @@ const Home = () => {
   const [showCreateTask, setShowCreateTask] = useState<boolean>(false);
   const [logs, setLogs] = useState<ActivityLogType[]>([]);
   const [tasks, setTasks] = useState<TaskType[]>([]);
-  const [newTask, setNewTask] = useState<Omit<TaskType, '_id'>>({
-    title: '',
-    description: '',
-    status: 'Todo',
-    priority: 'Medium',
-    assignedTo: { id: '', username: '' },
-  });
-
+  const [newTask, setNewTask] = useState<CreateTaskType>({
+  title: '',
+  description: '',
+  status: 'Todo',
+  priority: 'Medium',
+  assignedTo: {
+    id: '',
+    username: '',
+  },
+});
   // Real-time socket listeners
   useEffect(() => {
     socket.on('task_created', (task: TaskType) => {

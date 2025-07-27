@@ -22,7 +22,7 @@ const updateTask = async (task: any) => {
       const refreshResult = await ensureAuth()
       if (refreshResult?.accessToken) {
         accessToken = refreshResult.accessToken
-        localStorage.setItem('accessToken', accessToken)
+        localStorage.setItem('accessToken', accessToken as string)
 
         res = await fetch(finalUrl, {
           method: 'PUT',

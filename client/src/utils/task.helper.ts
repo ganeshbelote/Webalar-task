@@ -1,21 +1,14 @@
 import ensureAuth from './ensureAuth.helper'
 // const baseUrl: string = 'http://localhost:5000'
 import baseUrl from './baseUrl'
+import type { CreateTaskType } from '../utils/types';
 
 type refinedTaskDetailsType = {
   title: string
   description: string
   priority: string
   status: string
-  assignedTo: string 
-}
-
-type TaskDetailsType = {
-  title: string
-  description: string
-  priority: string
-  status: string
-  assignedTo: { id : string, username : string}
+  assignedTo: string | undefined
 }
 
 const getTasks = async () => {
@@ -62,7 +55,7 @@ const getTasks = async () => {
 
 export default getTasks
 
-export const createTask = async (taskDetails : TaskDetailsType)=> {
+export const createTask = async (taskDetails : CreateTaskType)=> {
   const route = '/api/task/v1/'
   const finalUrl = `${baseUrl}${route}`
   const accessToken = localStorage.getItem('accessToken')

@@ -1,24 +1,33 @@
-import React, { useEffect, useState } from 'react'
-import { getAllUsers } from '../utils/auth.helper'
+import { useEffect, useState } from 'react';
+import { getAllUsers } from '../utils/auth.helper';
+import type { CreateTaskType } from '../utils/types';
 
-const AllUsers = ({ newTask , setNewTask }) => {
-  const [users, setUsers] = useState({}) 
+interface AllUsersProps {
+  newTask: CreateTaskType;
+  setNewTask: React.Dispatch<React.SetStateAction<CreateTaskType>>;
+}
+
+const AllUsers: React.FC<AllUsersProps> = ({ newTask, setNewTask }) => {
+  const [users, setUsers] = useState<Record<string, string>>({});
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const result = await getAllUsers()
-        const userMap = result.reduce((acc, user) => {
-          acc[user._id] = user.username
-          return acc
-        }, {})
-        setUsers(userMap)
+        const result = await getAllUsers();
+        const userMap: Record<string, string> = result.reduce(
+          (acc: Record<string, string>, user: any) => {
+            acc[user._id] = user.username || '';
+            return acc;
+          },
+          {}
+        );
+        setUsers(userMap);
       } catch (error) {
-        console.error('Failed to fetch users:', error)
+        console.error('Failed to fetch users:', error);
       }
-    }
-    fetchUsers()
-  }, [])
+    };
+    fetchUsers();
+  }, []);
 
   return (
     <select
@@ -28,10 +37,10 @@ const AllUsers = ({ newTask , setNewTask }) => {
       onChange={e =>
         setNewTask({
           ...newTask,
-         assignedTo: {
-      id: e.target.value,
-      username: users[e.target.value],
-    }
+          assignedTo: {
+            id: e.target.value,
+            username: users[e.target.value],
+          },
         })
       }
     >
@@ -44,7 +53,7 @@ const AllUsers = ({ newTask , setNewTask }) => {
         </option>
       ))}
     </select>
-  )
-}
+  );
+};
 
-export default AllUsers
+export default AllUsers;
