@@ -9,7 +9,7 @@ const app = express()
 
 app.use(cors(
   {
-    origin: 'http://todowebappbyganesh.netlify.app',  
+    origin: 'https://todowebappbyganesh.netlify.app/',  
     credentials: true, 
   }
 )) 
