@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URL, {
-      dbName: 'devhub',
+      dbName: 'Webalar_TODOApp',
       autoIndex: true,
       maxPoolSize: 10,
       serverSelectionTimeoutMS: 5000,
