@@ -9,8 +9,8 @@ const app = express()
 
 app.use(cors(
   {
-  origin: 'https://todowebappbyganesh.netlify.app',  
-  credentials: true                 
+    origin: 'http://todowebappbyganesh.netlify.app',  
+    credentials: true, 
   }
 )) 
 app.use(cookieParser())
