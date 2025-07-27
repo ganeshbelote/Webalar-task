@@ -7,7 +7,7 @@ import cors from 'cors'
 
 const app = express()
 
-const allowedOrigin = 'https://todowebappbyganesh.netlify.app/';
+const allowedOrigin = 'https://todowebappbyganesh.netlify.app';
 
 app.use(cors({
   origin: allowedOrigin,
